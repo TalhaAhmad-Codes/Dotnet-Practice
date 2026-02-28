@@ -12,10 +12,13 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
-[Ll]og/
 [Ll]ogs/
+artifacts/
 
-## Visual Studio
+############################################################
+# Visual Studio
+############################################################
+
 .vs/
 *.user
 *.suo
@@ -25,11 +28,18 @@ bld/
 *.VC.VC.opendb
 *.opendb
 
-## Rider / ReSharper
+############################################################
+# Rider / ReSharper
+############################################################
+
 _ReSharper*/
 *.DotSettings.user
+.idea/
 
-## VS Code (if used occasionally)
+############################################################
+# VS Code (optional)
+############################################################
+
 .vscode/
 
 ############################################################
@@ -40,28 +50,39 @@ _ReSharper*/
 *.snupkg
 packages/
 .nuget/
-*.nuspec
-
-# Uncomment if using package restore
-# !packages/build/
 
 ############################################################
-# .NET Core / ASP.NET Core
+# ASP.NET Core / MVC / Razor / Blazor
 ############################################################
 
 project.lock.json
 project.fragment.lock.json
-artifacts/
-bundle/
-wwwroot/dist/
-node_modules/
-
-# Publish output
 publish/
 *.publishsettings
+*.pubxml
+*.pubxml.user
+*.azurePubxml
+*.publishproj
 
 ############################################################
-# Logs & Diagnostic files
+# Frontend (Bootstrap / jQuery Clutter Removed)
+############################################################
+
+# LibMan libraries (removes bootstrap, jquery, etc.)
+**/wwwroot/lib/
+
+# Node package manager
+*8/node_modules/
+
+# Yarn
+yarn.lock
+package-lock.json
+
+# Generated frontend outputs (only if auto-generated)
+**/wwwroot/dist/
+
+############################################################
+# Logs & Diagnostics
 ############################################################
 
 *.log
@@ -69,7 +90,6 @@ publish/
 *.cache
 *.pid
 *.svclog
-*.scc
 *.tmp
 
 ############################################################
@@ -83,17 +103,9 @@ publish/
 *.coveragexml
 
 ############################################################
-# Entity Framework / Migrations (optional)
-############################################################
-
-# Uncomment if migrations are auto-generated and not needed
-# Migrations/
-
-############################################################
 # ML.NET
 ############################################################
 
-*.zip
 *.model
 *.mlnet
 *.onnx
@@ -108,16 +120,7 @@ publish/
 *.dbmdl
 
 ############################################################
-# Azure / Publish
-############################################################
-
-*.azurePubxml
-*.pubxml
-*.pubxml.user
-*.publishproj
-
-############################################################
-# IIS / Express
+# IIS Express
 ############################################################
 
 /.vs/config/applicationhost.config
@@ -132,7 +135,7 @@ Desktop.ini
 $RECYCLE.BIN/
 
 ############################################################
-# Temporary files
+# Temporary Files
 ############################################################
 
 *.temp
@@ -141,20 +144,14 @@ $RECYCLE.BIN/
 *.old
 
 ############################################################
-# SQL Server
+# SQL Server LocalDB
 ############################################################
 
 *.mdf
 *.ldf
 
 ############################################################
-# JetBrains
-############################################################
-
-.idea/
-
-############################################################
-# DotCover
+# Coverage / Profiling
 ############################################################
 
 *.dotCover
@@ -164,14 +161,11 @@ $RECYCLE.BIN/
 ############################################################
 
 Generated_Code/
-*_i.c
-*_p.c
-*_h.h
 *.g.cs
 *.g.i.cs
 
 ############################################################
-# Docker (if used)
+# Docker
 ############################################################
 
 docker-compose.override.yml
