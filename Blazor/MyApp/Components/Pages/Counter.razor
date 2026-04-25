@@ -1,19 +1,29 @@
-﻿@page "/counter"
+﻿@* Route: makes this component available at the '/counter' URL *@
+@page "/counter"
+
+@* Render mode: use Blazor Server interactive rendering (SignalR-based) *@
 @rendermode InteractiveServer
 
+@* Sets the browser tab title when this page is active *@
 <PageTitle>Counter</PageTitle>
 
+@* Visible page heading *@
 <h1>Counter</h1>
 
+@* Status paragraph showing the current counter value (accessible role) *@
 <p role="status">Current count: @currentCount</p>
 
+@* Button wired to the IncrementCount event handler (Bootstrap styling) *@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+    // Stores the current counter value for this component instance
     private int currentCount = 0;
 
+    // Event handler invoked when the button is clicked to increment the counter
     private void IncrementCount()
     {
+        // Increase the counter value by one
         currentCount++;
     }
 }
