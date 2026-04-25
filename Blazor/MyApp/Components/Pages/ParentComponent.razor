@@ -1,0 +1,15 @@
+﻿@page "/parent"
+@using MyApp.Modals
+
+<h1>ParentComponent</h1>
+
+<ChildComponent Name=@person.Name Age=@person.Age Hobbies=@person.Hobbies />
+
+@code{
+	Person person = new()
+	{
+		Name = "Talha Ahmad",
+		Age = 20,
+		Hobbies = ["Programming", "Gaming", "Cooking"]
+	};
+}
