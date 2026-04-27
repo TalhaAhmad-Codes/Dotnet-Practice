@@ -1,10 +1,11 @@
-﻿
+﻿@using MyApp.Modals
+
 <div class="bg-dark text-white p-3 font-monospace">
 	<h3>ChildComponent</h3>
 
-	<p>My name is @Name and I'm @Age years old. My hobbies are:</p>
+	<p>My name is @Person.Name and I'm @Person.Age years old. My hobbies are:</p>
 	<ul>
-		@foreach (var hobby in Hobbies)
+		@foreach (var hobby in Person.Hobbies)
 		{
 			<li>@hobby</li>
 		}
@@ -13,11 +14,14 @@
 
 @code {
 	[Parameter]
-	public string Name { get; set; }
+	public Person Person { get; set; }
 
-	[Parameter]
-	public int Age { get; set; }
+	// [Parameter]
+	// public string Name { get; set; }
 
-	[Parameter]
-	public List<string> Hobbies { get; set; }
+	// [Parameter]
+	// public int Age { get; set; }
+
+	// [Parameter]
+	// public List<string> Hobbies { get; set; }
 }
