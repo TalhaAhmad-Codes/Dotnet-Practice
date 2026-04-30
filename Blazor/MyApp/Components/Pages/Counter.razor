@@ -10,14 +10,16 @@
 @* Visible page heading *@
 <h1>Counter</h1>
 
-@* Status paragraph showing the current counter value (accessible role) *@
-<p role="status">Current count: @currentCount</p>
+@* <p role="status">Current count: @currentCount</p>
 
-@* Button wired to the IncrementCount event handler (Bootstrap styling) *@
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button> *@
+
+<input placeholder="Enter your name" @oninput="OnNameChanged" />
+<p>Your name is @name</p>
+<p>The length is @name.Length</p>
 
 @code {
-    // Stores the current counter value for this component instance
+    /*// Stores the current counter value for this component instance
     private int currentCount = 0;
 
     // Event handler invoked when the button is clicked to increment the counter
@@ -25,5 +27,11 @@
     {
         // Increase the counter value by one
         currentCount++;
+        }*/
+    string name = string.Empty;
+
+    void OnNameChanged(ChangeEventArgs e)
+    {
+        name = e.Value?.ToString()?.Trim() ?? string.Empty;
     }
 }
