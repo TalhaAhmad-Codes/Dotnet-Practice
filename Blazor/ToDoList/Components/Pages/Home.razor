@@ -1,7 +1,50 @@
 ﻿@page "/"
+@using ToDoList.Models
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Today's Tasks</h1>
 
-Welcome to your new app.
+<form>
+	<input type="text" placeholder="Add a new task" @oninput="OnEnterTask" />
+	<button type="submit" @onclick="AddTask">Add</button>
+	<button type="submit" @onclick="UpdateTask">Update</button>
+	<button type="submit" @onclick="RemoveTask">Delete</button>
+</form>
+
+<hr />
+
+<div>
+	@foreach (var task in Tasks)
+	{
+		<div class="">
+			<input type="checkbox" @bind="task.IsCompleted" />
+			<span>@task.Task</span>
+		</div>
+	}
+</div>
+
+@code {
+	List<TodoTask> Tasks = new();
+	string task = string.Empty;
+
+	void AddTask()
+	{
+		Tasks.Add(new() { Task = task.Trim() });
+	}
+
+	void UpdateTask()
+	{
+		// Implementation for updating a task
+	}
+
+	void RemoveTask()
+	{
+		// Implementation for removing a task
+	}
+
+	void OnEnterTask(ChangeEventArgs e)
+	{
+		task = e.Value?.ToString()?.Trim() ?? string.Empty;
+	}
+}
