@@ -1,4 +1,6 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+
 @using ToDoList.Models
 
 <PageTitle>Home</PageTitle>
@@ -18,7 +20,7 @@
 	@foreach (var task in Tasks)
 	{
 		<div class="">
-			<input type="checkbox" @bind="task.IsCompleted" />
+			<input type="checkbox" @bind="task.IsCompleted"/>
 			<span>@task.Task</span>
 		</div>
 	}
@@ -28,9 +30,15 @@
 	List<TodoTask> Tasks = new();
 	string task = string.Empty;
 
+	void ReRender()
+	{
+		StateHasChanged();
+	}
+
 	void AddTask()
 	{
 		Tasks.Add(new() { Task = task.Trim() });
+		// ReRender();
 	}
 
 	void UpdateTask()
